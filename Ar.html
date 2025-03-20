@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity id="box" geometry="primitive: box" position="0 1.5 -3" color="red"></a-entity>
+    </a-scene>
+
+    <script>
+      window.addEventListener("deviceorientation", (event) => {
+        let x = event.beta / 90;  // Tilt forward/backward
+        let y = event.gamma / 90; // Tilt left/right
+
+        let box = document.getElementById("box");
+        box.setAttribute("position", ${y} 1.5 ${-3 + x});
+      });
+    </script>
+  </body>
+</html>
